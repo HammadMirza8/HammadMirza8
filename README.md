@@ -1,8 +1,6 @@
-![logo](<img width="750" alt="23F1CEFC-A715-4A7F-A2C5-2713FC5269F4" src="https://github.com/HammadMirza8/HammadMirza8/assets/174458225/621326b9-3f9d-45a2-a1ac-4731467cd0d5">)
+
 <h1 align="center">Hi 👋, I'm Hammad Mirza</h1>
 <h3 align="center">A passionate learner from India</h3>
-
-<img align=“right” alt=“coding” width=“400” src=“https://user-images.githubusercontent.com/55389276/140866485-8fb1c876-9a8f-4d6a-98dc-08c4981eaf70.gif”>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=hammadmirza8&label=Profile%20views&color=0e75b6&style=flat" alt="hammadmirza8" /> </p>
 
