@@ -6,7 +6,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=hammadmirza8&label=Profile%20views&color=0e75b6&style=flat" alt="hammadmirza8" /> </p>
 
-- 🌱 I’m currently learning **coding**
+- 🌱 I’m currently learning **how to do coding**
 
 - ⚡ Fun fact **I have a great knowledge about computer hardware**
 
