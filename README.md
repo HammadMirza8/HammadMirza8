@@ -1,4 +1,5 @@
-<img width="750" alt="23F1CEFC-A715-4A7F-A2C5-2713FC5269F4" src="https://github.com/HammadMirza8/HammadMirza8/assets/174458225/03647d66-87f2-490e-b676-8944a0502d65"><h1 align="center">Hi 👋, I'm Hammad Mirza</h1>
+<img width="750" alt="23F1CEFC-A715-4A7F-A2C5-2713FC5269F4" src="https://github.com/HammadMirza8/HammadMirza8/assets/174458225/03647d66-87f2-490e-b676-8944a0502d65"><h1 align="center">
+Hi 👋, I'm Hammad Mirza</h1>
 <h3 align="center">A passionate learner from India</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=hammadmirza8&label=Profile%20views&color=0e75b6&style=flat" alt="hammadmirza8" /> </p>
