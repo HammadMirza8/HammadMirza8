@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { SiGithub, SiTwitter, SiLinkedin } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 
 export function Footer() {
@@ -23,7 +23,7 @@ export function Footer() {
               className="text-muted-foreground transition-colors hover:text-primary"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <SiGithub size={20} />
             </a>
             <a
               href="https://twitter.com"
@@ -32,7 +32,7 @@ export function Footer() {
               className="text-muted-foreground transition-colors hover:text-primary"
               aria-label="Twitter"
             >
-              <Twitter size={20} />
+              <SiTwitter size={20} />
             </a>
             <a
               href="https://linkedin.com"
@@ -41,7 +41,7 @@ export function Footer() {
               className="text-muted-foreground transition-colors hover:text-primary"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <SiLinkedin size={20} />
             </a>
           </div>
         </div>
