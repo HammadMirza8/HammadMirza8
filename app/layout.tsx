@@ -25,8 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} bg-background`}>
-      <body className="min-h-screen flex flex-col font-sans antialiased">
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} bg-background`} suppressHydrationWarning>
+      <body className="min-h-screen flex flex-col font-sans antialiased" suppressHydrationWarning>
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />
