@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/navigation";
@@ -15,8 +15,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Creative Portfolio | Stories, Art & Videos",
-  description: "A personal creative portfolio showcasing stories, art gallery, and YouTube content.",
+  title: "MirzaSpace | Stories, Art & Videos",
+  description: "Crafting experiences for the digital world. Explore stories, art gallery, and creative video content.",
+  keywords: ["portfolio", "stories", "art gallery", "youtube", "creative", "digital"],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
