@@ -107,32 +107,17 @@ export default function HomePage() {
       </section>
 
       {/* About Section */}
-      <section className="border-t border-border bg-card py-24">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="border-t border-border bg-card py-20">
+        <div className="mx-auto max-w-[900px] px-5">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="mb-6 text-2xl font-bold text-foreground md:text-3xl">
-              About Me
+            <h2 className="mb-5 text-4xl font-bold text-foreground">
+              Hey, I&apos;m Hammad
             </h2>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              I&apos;m a passionate creator who loves to explore the intersection of
-              storytelling, visual art, and digital media. This space serves as
-              my creative hub where I share my work and connect with fellow
-              enthusiasts.
+              On my YouTube channel, I share videos of me playing games and exploring different creative interests.
+              I&apos;m also learning writing, and on this website you&apos;ll find some of my short stories along with
+              a look into the work I&apos;m building.
             </p>
-            <div className="mt-8 flex justify-center gap-8 text-center">
-              <div>
-                <p className="text-3xl font-bold text-primary">50+</p>
-                <p className="mt-1 text-sm text-muted-foreground">Stories</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">100+</p>
-                <p className="mt-1 text-sm text-muted-foreground">Artworks</p>
-              </div>
-              <div>
-                <p className="text-3xl font-bold text-primary">25+</p>
-                <p className="mt-1 text-sm text-muted-foreground">Videos</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
