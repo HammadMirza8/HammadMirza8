@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Image, Youtube } from "lucide-react";
+import { ArrowRight, BookOpen, ImageIcon, Play } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -69,7 +69,7 @@ export default function HomePage() {
             <Link href="/gallery" className="group">
               <div className="rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/50 hover:bg-card/80">
                 <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-3 text-primary">
-                  <Image size={28} />
+                  <ImageIcon size={28} />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold text-foreground group-hover:text-primary">
                   Art Gallery
@@ -88,7 +88,7 @@ export default function HomePage() {
             <Link href="/youtube" className="group">
               <div className="rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/50 hover:bg-card/80">
                 <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-3 text-primary">
-                  <Youtube size={28} />
+                  <Play size={28} />
                 </div>
                 <h3 className="mb-3 text-xl font-semibold text-foreground group-hover:text-primary">
                   YouTube
