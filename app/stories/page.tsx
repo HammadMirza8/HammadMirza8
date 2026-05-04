@@ -1,4 +1,7 @@
-import { Clock, ArrowRight } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { Clock, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 
 const stories = [
@@ -61,18 +64,25 @@ const stories = [
 const categories = ["All", "Fiction", "Sci-Fi", "Fantasy", "Drama", "Historical"];
 
 export default function StoriesPage() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredStories =
+    selectedCategory === "All"
+      ? stories
+      : stories.filter((story) => story.category === selectedCategory);
+
   return (
-    <div className="min-h-screen py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <div className="min-h-screen pt-32 pb-24">
+      <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
         <div className="mb-16 max-w-2xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">
-            Blog
+          <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+            Creative Writing
           </p>
-          <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-6xl">
             Stories
           </h1>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             A collection of creative writing, short stories, and narratives
             exploring imagination, emotion, and the human experience.
           </p>
@@ -83,10 +93,11 @@ export default function StoriesPage() {
           {categories.map((category) => (
             <button
               key={category}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                category === "All"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-card text-muted-foreground hover:bg-muted hover:text-foreground"
+              onClick={() => setSelectedCategory(category)}
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                category === selectedCategory
+                  ? "bg-foreground text-background"
+                  : "bg-muted text-muted-foreground hover:bg-white/10 hover:text-foreground"
               }`}
             >
               {category}
@@ -95,24 +106,24 @@ export default function StoriesPage() {
         </div>
 
         {/* Stories Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {stories.map((story) => (
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredStories.map((story) => (
             <article
               key={story.id}
-              className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50"
+              className="group glass glow rounded-2xl p-6 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20"
             >
               <div className="mb-4 flex items-center gap-3">
-                <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-foreground">
                   {story.category}
                 </span>
                 <span className="text-xs text-muted-foreground">
                   {story.date}
                 </span>
               </div>
-              <h2 className="mb-3 text-xl font-semibold text-foreground group-hover:text-primary">
+              <h2 className="mb-3 text-xl font-semibold text-foreground group-hover:text-foreground/90">
                 {story.title}
               </h2>
-              <p className="mb-4 text-muted-foreground leading-relaxed line-clamp-3">
+              <p className="mb-6 text-muted-foreground leading-relaxed line-clamp-3">
                 {story.excerpt}
               </p>
               <div className="flex items-center justify-between">
@@ -122,9 +133,10 @@ export default function StoriesPage() {
                 </div>
                 <Link
                   href={`/stories/${story.id}`}
-                  className="flex items-center gap-1 text-sm font-medium text-primary hover:underline"
+                  className="flex items-center gap-1 text-sm font-medium text-foreground transition-transform group-hover:translate-x-0.5"
                 >
-                  Read <ArrowRight size={14} />
+                  Read 
+                  <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
             </article>
@@ -132,8 +144,8 @@ export default function StoriesPage() {
         </div>
 
         {/* Load More */}
-        <div className="mt-12 text-center">
-          <button className="rounded-lg border border-border bg-card px-8 py-3 text-sm font-medium text-foreground transition-all hover:border-primary hover:text-primary">
+        <div className="mt-16 text-center">
+          <button className="rounded-full border border-border px-8 py-4 text-sm font-medium text-foreground transition-all hover:bg-muted hover:border-white/20">
             Load More Stories
           </button>
         </div>

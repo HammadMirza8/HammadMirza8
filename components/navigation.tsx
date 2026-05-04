@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -15,24 +15,42 @@ const navLinks = [
 export function Navigation() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto max-w-6xl px-6 py-4">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/80 backdrop-blur-xl border-b border-border"
+          : "bg-transparent"
+      }`}
+    >
+      <nav className="mx-auto max-w-7xl px-6 py-5">
         <div className="flex items-center justify-between">
-          <Link href="/" className="text-xl font-bold tracking-tight text-foreground">
-            Creative<span className="text-primary">Hub</span>
+          <Link
+            href="/"
+            className="text-xl font-bold tracking-tight text-foreground transition-opacity hover:opacity-80"
+          >
+            Mirza<span className="text-muted-foreground">Space</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul className="hidden items-center gap-10 md:flex">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                  className={`text-sm font-medium transition-colors hover:text-foreground ${
                     pathname === link.href
-                      ? "text-primary"
+                      ? "text-foreground"
                       : "text-muted-foreground"
                   }`}
                 >
@@ -54,23 +72,25 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <ul className="mt-4 flex flex-col gap-4 border-t border-border pt-4 md:hidden">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`block text-sm font-medium transition-colors hover:text-primary ${
-                    pathname === link.href
-                      ? "text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="absolute top-full left-0 right-0 border-b border-border bg-background/95 backdrop-blur-xl md:hidden">
+            <ul className="flex flex-col px-6 py-6">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block py-3 text-base font-medium transition-colors hover:text-foreground ${
+                      pathname === link.href
+                        ? "text-foreground"
+                        : "text-muted-foreground"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
       </nav>
     </header>

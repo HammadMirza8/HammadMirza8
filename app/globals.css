@@ -1,17 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #0a0f1a;
-  --color-foreground: #e2e8f0;
-  --color-card: #111827;
-  --color-card-foreground: #e2e8f0;
-  --color-primary: #38bdf8;
-  --color-primary-foreground: #0a0f1a;
-  --color-muted: #1e293b;
-  --color-muted-foreground: #94a3b8;
-  --color-border: #1e293b;
-  --color-accent: #38bdf8;
-  --radius: 0.5rem;
+  --color-background: #050505;
+  --color-foreground: #fafafa;
+  --color-card: rgba(255, 255, 255, 0.03);
+  --color-card-foreground: #fafafa;
+  --color-primary: #ffffff;
+  --color-primary-foreground: #050505;
+  --color-muted: rgba(255, 255, 255, 0.06);
+  --color-muted-foreground: #a1a1a1;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-accent: #d4d4d4;
+  --color-glass: rgba(255, 255, 255, 0.04);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  --radius: 1rem;
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
@@ -20,6 +22,10 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,6 +41,27 @@ a {
 }
 
 ::selection {
-  background: var(--color-primary);
-  color: var(--color-primary-foreground);
+  background: var(--color-foreground);
+  color: var(--color-background);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle glow effect */
+.glow {
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.03);
 }

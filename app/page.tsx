@@ -1,123 +1,187 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, ImageIcon, Play } from "lucide-react";
+import { ArrowUpRight, BookOpen, Image as ImageIcon, Play, Lightbulb, Eye, Video } from "lucide-react";
+
+const stats = [
+  { icon: Lightbulb, value: "Few", label: "Novel Ideas" },
+  { icon: Eye, value: "5000+", label: "Views" },
+  { icon: Video, value: "15+", label: "Videos" },
+];
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
-        <div className="relative mx-auto max-w-6xl px-6">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">
-              Welcome to my creative space
-            </p>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-foreground md:text-6xl">
-              <span className="text-balance">Crafting stories, art, and experiences for the digital world.</span>
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
-              I build accessible, engaging digital experiences that blend thoughtful
-              design with creative expression. Explore my stories, artwork, and video
-              content.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                href="/stories"
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:bg-primary/90"
-              >
-                Read Stories
-                <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/gallery"
-                className="inline-flex items-center gap-2 rounded-lg border border-border bg-card px-6 py-3 text-sm font-medium text-foreground transition-all hover:border-primary hover:text-primary"
-              >
-                View Gallery
-              </Link>
-            </div>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        {/* Subtle gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/[0.015] rounded-full blur-3xl" />
+        
+        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center">
+          <p className="mb-8 text-sm font-medium uppercase tracking-[0.3em] text-muted-foreground">
+            Welcome to MirzaSpace
+          </p>
+          
+          <h1 className="text-5xl font-bold leading-[1.1] tracking-tight text-foreground md:text-7xl lg:text-8xl">
+            <span className="text-balance block">experiences for</span>
+            <span className="text-balance block mt-2">the digital world.</span>
+          </h1>
+          
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+            Crafting stories, art, and creative content that explore imagination 
+            and push the boundaries of digital expression.
+          </p>
+          
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/stories"
+              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-8 py-4 text-sm font-medium text-background transition-all hover:bg-foreground/90"
+            >
+              Explore Stories
+              <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+            <Link
+              href="/gallery"
+              className="inline-flex items-center gap-2 rounded-full border border-border px-8 py-4 text-sm font-medium text-foreground transition-all hover:bg-muted"
+            >
+              View Gallery
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured Sections */}
-      <section className="border-t border-border py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="mb-12 text-center text-2xl font-bold text-foreground md:text-3xl">
-            Explore My Work
-          </h2>
-          <div className="grid gap-8 md:grid-cols-3">
+      {/* Featured Sections - Glassmorphism Cards */}
+      <section className="relative py-24 md:py-32">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-16 text-center">
+            <h2 className="text-3xl font-bold text-foreground md:text-4xl">
+              Explore My Work
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              Dive into a world of creativity across different mediums
+            </p>
+          </div>
+          
+          <div className="grid gap-6 md:grid-cols-3">
             {/* Stories Card */}
             <Link href="/stories" className="group">
-              <div className="rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/50 hover:bg-card/80">
-                <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-3 text-primary">
-                  <BookOpen size={28} />
+              <div className="glass glow rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 h-full">
+                <div className="mb-6 inline-flex rounded-xl bg-white/5 p-4">
+                  <BookOpen size={28} className="text-foreground" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground group-hover:text-primary">
+                <h3 className="mb-3 text-2xl font-semibold text-foreground">
                   Stories
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Dive into a collection of creative writing, short stories, and
-                  narratives that explore imagination and human experience.
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  A collection of creative writing and short narratives that 
+                  explore imagination and the human experience.
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary">
-                  Read more <ArrowRight size={14} />
+                <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  Read Stories 
+                  <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
               </div>
             </Link>
 
             {/* Gallery Card */}
             <Link href="/gallery" className="group">
-              <div className="rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/50 hover:bg-card/80">
-                <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-3 text-primary">
-                  <ImageIcon size={28} />
+              <div className="glass glow rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 h-full">
+                <div className="mb-6 inline-flex rounded-xl bg-white/5 p-4">
+                  <ImageIcon size={28} className="text-foreground" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground group-hover:text-primary">
+                <h3 className="mb-3 text-2xl font-semibold text-foreground">
                   Art Gallery
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Browse through a visual journey of artwork, illustrations, and
-                  creative pieces that capture moments and emotions.
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Browse through visual artwork, illustrations, and creative 
+                  pieces that capture moments and emotions.
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary">
-                  View gallery <ArrowRight size={14} />
+                <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  View Gallery 
+                  <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
               </div>
             </Link>
 
             {/* YouTube Card */}
-            <Link href="/youtube" className="group">
-              <div className="rounded-xl border border-border bg-card p-8 transition-all hover:border-primary/50 hover:bg-card/80">
-                <div className="mb-6 inline-flex rounded-lg bg-primary/10 p-3 text-primary">
-                  <Play size={28} />
+            <a 
+              href="https://www.youtube.com/@HammadMirza_yt" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="group"
+            >
+              <div className="glass glow rounded-2xl p-8 transition-all duration-300 hover:bg-white/[0.06] hover:border-white/20 h-full">
+                <div className="mb-6 inline-flex rounded-xl bg-white/5 p-4">
+                  <Play size={28} className="text-foreground" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-foreground group-hover:text-primary">
+                <h3 className="mb-3 text-2xl font-semibold text-foreground">
                   YouTube
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  Watch video content ranging from creative projects, tutorials,
-                  vlogs, and behind-the-scenes of the creative process.
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Watch video content including gaming, creative projects, 
+                  and behind-the-scenes of the creative process.
                 </p>
-                <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary">
-                  Watch videos <ArrowRight size={14} />
+                <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  Watch Videos 
+                  <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="border-t border-border bg-card py-20">
-        <div className="mx-auto max-w-[900px] px-5">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="mb-5 text-4xl font-bold text-foreground">
-              Hey, I&apos;m Hammad
-            </h2>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              On my YouTube channel, I share videos of me playing games and exploring different creative interests.
-              I&apos;m also learning writing, and on this website you&apos;ll find some of my short stories along with
-              a look into the work I&apos;m building.
-            </p>
+      {/* About Section with Stats */}
+      <section className="relative py-24 md:py-32 border-t border-border">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 items-center">
+            {/* About Text */}
+            <div>
+              <p className="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-muted-foreground">
+                About Me
+              </p>
+              <h2 className="text-4xl font-bold text-foreground md:text-5xl">
+                Hey, I&apos;m Hammad
+              </h2>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                On my YouTube channel, I share videos of me playing games and 
+                exploring different creative interests. I&apos;m also learning 
+                writing, and on this website you&apos;ll find some of my short 
+                stories along with a look into the work I&apos;m building.
+              </p>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                This space is where I document my creative journey, experiment 
+                with new ideas, and share experiences that hopefully resonate 
+                with others.
+              </p>
+              
+              <div className="mt-10">
+                <a
+                  href="https://www.youtube.com/@HammadMirza_yt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 text-foreground font-medium hover:text-muted-foreground transition-colors"
+                >
+                  Check out my YouTube channel
+                  <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid gap-6 sm:grid-cols-3">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="glass glow rounded-2xl p-6 text-center"
+                >
+                  <div className="mb-4 inline-flex rounded-xl bg-white/5 p-3">
+                    <stat.icon size={24} className="text-foreground" />
+                  </div>
+                  <p className="text-3xl font-bold text-foreground">{stat.value}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
