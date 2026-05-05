@@ -24,9 +24,7 @@
   margin: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior is handled via data-scroll-behavior attribute on html element for Next.js 16 compatibility */
 
 body {
   color: var(--color-foreground);
