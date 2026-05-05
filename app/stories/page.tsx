@@ -84,7 +84,7 @@ export default function StoriesPage() {
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
             A collection of creative writing, short stories, and narratives
-            exploring imagination, emotion, and the human experience.
+            exploring imagination, from me.
           </p>
         </div>
 
