@@ -2,76 +2,12 @@
 
 import { useState } from "react";
 import { X } from "lucide-react";
-
-const artworks = [
-  {
-    id: 1,
-    title: "Sunset Dreams",
-    category: "Digital Art",
-    color: "from-orange-500/80 to-pink-500/80",
-  },
-  {
-    id: 2,
-    title: "Ocean Depths",
-    category: "Illustration",
-    color: "from-blue-500/80 to-cyan-500/80",
-  },
-  {
-    id: 3,
-    title: "Forest Whispers",
-    category: "Digital Art",
-    color: "from-green-500/80 to-emerald-500/80",
-  },
-  {
-    id: 4,
-    title: "Urban Nights",
-    category: "Photography",
-    color: "from-purple-500/80 to-indigo-500/80",
-  },
-  {
-    id: 5,
-    title: "Abstract Flow",
-    category: "Abstract",
-    color: "from-rose-500/80 to-orange-500/80",
-  },
-  {
-    id: 6,
-    title: "Mountain Serenity",
-    category: "Landscape",
-    color: "from-slate-500/80 to-blue-500/80",
-  },
-  {
-    id: 7,
-    title: "Neon Reflections",
-    category: "Digital Art",
-    color: "from-fuchsia-500/80 to-cyan-500/80",
-  },
-  {
-    id: 8,
-    title: "Golden Hour",
-    category: "Photography",
-    color: "from-amber-500/80 to-yellow-500/80",
-  },
-  {
-    id: 9,
-    title: "Cosmic Journey",
-    category: "Abstract",
-    color: "from-violet-500/80 to-purple-500/80",
-  },
-];
-
-const categories = [
-  "All",
-  "Digital Art",
-  "Illustration",
-  "Photography",
-  "Abstract",
-  "Landscape",
-];
+import Image from "next/image";
+import { artworks, artCategories, type Artwork } from "@/constants/data";
 
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedArtwork, setSelectedArtwork] = useState<typeof artworks[0] | null>(null);
+  const [selectedArtwork, setSelectedArtwork] = useState<Artwork | null>(null);
 
   const filteredArtworks =
     selectedCategory === "All"
@@ -97,7 +33,7 @@ export default function GalleryPage() {
 
         {/* Categories */}
         <div className="mb-12 flex flex-wrap gap-3">
-          {categories.map((category) => (
+          {artCategories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
@@ -120,9 +56,13 @@ export default function GalleryPage() {
               onClick={() => setSelectedArtwork(artwork)}
               className="group relative aspect-[4/5] overflow-hidden rounded-2xl glass glow transition-all duration-300 hover:border-white/20"
             >
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${artwork.color} opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105`}
+              <Image
+                src={artwork.image}
+                alt={artwork.title}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
+              <div className="absolute inset-0 bg-black/20 transition-all duration-300 group-hover:bg-black/40" />
               <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center opacity-0 transition-all duration-300 group-hover:opacity-100">
                 <h3 className="text-2xl font-semibold text-white">
                   {artwork.title}
@@ -130,10 +70,10 @@ export default function GalleryPage() {
                 <p className="mt-2 text-sm text-white/80">{artwork.category}</p>
               </div>
               <div className="absolute bottom-6 left-6 right-6 transition-all duration-300 group-hover:opacity-0">
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-white drop-shadow-lg">
                   {artwork.title}
                 </h3>
-                <p className="text-sm text-white/70">{artwork.category}</p>
+                <p className="text-sm text-white/90 drop-shadow-lg">{artwork.category}</p>
               </div>
             </button>
           ))}
@@ -156,9 +96,14 @@ export default function GalleryPage() {
               >
                 <X size={20} />
               </button>
-              <div
-                className={`aspect-video w-full bg-gradient-to-br ${selectedArtwork.color}`}
-              />
+              <div className="relative aspect-video w-full">
+                <Image
+                  src={selectedArtwork.image}
+                  alt={selectedArtwork.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className="p-8">
                 <h2 className="text-3xl font-bold text-foreground">
                   {selectedArtwork.title}
